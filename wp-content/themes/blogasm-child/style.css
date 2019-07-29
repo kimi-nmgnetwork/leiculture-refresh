@@ -1,0 +1,21 @@
+/*
+ Theme Name:   Blogasm Child
+ Theme URI:    http://leiculture.com/blogasm-child/
+ Description:  Blogasm Child Theme
+ Template:     blogasm
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  blogasmchild
+*/
+
+#colophon{
+    display: none;
+}   
+
+@media (min-width: 992px){
+.hamburger-menu.d-lg-none {
+    display: block!important;
+}
+}
