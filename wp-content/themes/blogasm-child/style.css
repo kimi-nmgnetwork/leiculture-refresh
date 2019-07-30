@@ -10,12 +10,20 @@
  Text Domain:  blogasmchild
 */
 
-#colophon{
-    display: none;
-}   
-
-@media (min-width: 992px){
-.hamburger-menu.d-lg-none {
-    display: block!important;
+#colophon {
+  display: none;
 }
+
+@media (min-width: 992px) {
+  .hamburger-menu.d-lg-none {
+    display: block !important;
+  }
+}
+
+.hamburger-menu {
+  z-index: 100;
+}
+
+.body-overlay {
+  background: #fff;
 }
