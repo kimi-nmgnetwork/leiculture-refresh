@@ -124,6 +124,10 @@ ul.primary-menu li:first-child {
 }
 
 @media (min-width: 992px) {
+  .d-lg-block {
+    display: none !important;
+  }
+
   .main-navigation {
     flex-direction: row-reverse;
   }
