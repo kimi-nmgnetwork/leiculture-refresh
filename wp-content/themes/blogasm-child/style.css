@@ -148,3 +148,34 @@ ul.primary-menu li:first-child {
     margin-left: 8rem !important;
   }
 }
+
+/* MAIN CATEGORY SUBPAGES */
+#sub-hero {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-container {
+  height: 60vh;
+  width: 60vw !important;
+}
+
+.hero-two-column {
+  height: 60vh;
+  width: 100%;
+}
+
+.hero-img {
+  overflow: hidden;
+  height: 60vh !important;
+  width: 100% !important;
+}
+
+.hero-img img {
+  height: 60vh !important;
+  object-fit: cover;
+  width: 100%;
+}

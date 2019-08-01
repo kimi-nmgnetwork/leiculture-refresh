@@ -1,3 +1,5 @@
+console.log("updated");
+
 // Remove overlay if burger x is clicked
 document.addEventListener("DOMContentLoaded", () => {
   const burgerMenu = document.querySelector(".hamburger-menu");
@@ -25,7 +27,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const pageItems = document.querySelectorAll(".page_item");
 
   // Change this to img links later
-  const imgArr = ["red", "blue", "green", "orange", "purple", "yellow"];
+  const imgArr = [
+    "http://staging.leiculture.com/wp-content/uploads/2019/08/arts_design.jpg",
+    "http://staging.leiculture.com/wp-content/uploads/2019/08/culture.jpg",
+    "http://staging.leiculture.com/wp-content/uploads/2019/08/fashion.jpg",
+    "http://staging.leiculture.com/wp-content/uploads/2019/08/explore.jpg",
+    "http://staging.leiculture.com/wp-content/uploads/2019/08/lei_tv.jpg",
+    "http://staging.leiculture.com/wp-content/uploads/2019/08/about.jpg"
+  ];
   let current;
 
   pageItems.forEach((item, key) => {
@@ -35,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       imgArr.map((img, key) => {
         if (current == key) {
-          selectedImg.style.background = img;
+          selectedImg.src = img;
         }
       });
     });
