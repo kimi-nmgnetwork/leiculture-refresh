@@ -1,13 +1,30 @@
-// Remove overlay if burger x is clicked
 document.addEventListener("DOMContentLoaded", () => {
+  // GET RID OF ALL WIDOWS
+  const pTag = document.querySelectorAll("p");
+
+  pTag.forEach(tag => {
+    // 1. Split all the words from the p tag from anytime there's a space
+    const words = tag.innerHTML.split(" ");
+    // 2. Find the last space and insert a &nbsp; in it's place
+    const lastWordsList = words.slice(-1) && words.splice(-2);
+    // 3. Join the last two togehter with a &nbsp;
+    tag.innerHTML = words.join(" ") + " " + lastWordsList.join("&nbsp;");
+  });
+
+  // Remove overlay if burger x is clicked
   const burgerMenu = document.querySelector(".hamburger-menu");
   const overlay = document.querySelector(".body-overlay");
+
+  // Disable overflow hero img when nav is toggled
+  const overflowHeroImg = document.querySelector(".hero-img");
 
   burgerMenu.addEventListener("click", () => {
     if (burgerMenu.classList.contains("cross")) {
       overlay.classList.add("is-active");
+      overflowHeroImg.style.display = "none";
     } else {
       overlay.classList.remove("is-active");
+      overflowHeroImg.style.display = "block";
     }
   });
 
@@ -64,11 +81,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // USE THE OPENING ANIMATIONS
+  const imgTags = document.querySelectorAll("div");
+
   const heroImg = document.querySelector(".hero-img");
   const scrollCta = document.querySelector(".scroll-cta");
   const heroDescription = document.querySelector(".hero-description");
 
-  heroImg.classList.add("loaded");
-  scrollCta.classList.add("loaded");
-  heroDescription.classList.add("loaded");
+  imgTags.forEach(tag => {
+    if (tag.classList.contains("hero-img")) {
+      heroImg.classList.add("loaded");
+      scrollCta.classList.add("loaded");
+      heroDescription.classList.add("loaded");
+    } else {
+      console.log("not working");
+    }
+  });
 });
