@@ -90,10 +90,11 @@ document.addEventListener("DOMContentLoaded", () => {
   imgTags.forEach(tag => {
     if (tag.classList.contains("hero-img")) {
       heroImg.classList.add("loaded");
-      scrollCta.classList.add("loaded");
-      heroDescription.classList.add("loaded");
-    } else {
-      console.log("not working");
+
+      if (tag.classList.contains("lei-category")) {
+        scrollCta.classList.add("loaded");
+        heroDescription.classList.add("loaded");
+      }
     }
   });
 });

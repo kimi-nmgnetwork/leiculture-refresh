@@ -14,7 +14,7 @@ function my_theme_enqueue_styles() {
 
 function my_theme_scripts_function() {
 
-	wp_enqueue_script( 'myscript', get_stylesheet_directory_uri() . '/js/scripts.js');
+	wp_enqueue_script( 'myscript', get_stylesheet_directory_uri() . '/js/scripts.js', array(), false, true);
   
   }
   
