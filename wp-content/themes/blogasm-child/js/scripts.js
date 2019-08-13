@@ -97,4 +97,58 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
+
+  // LEI TV HOVER STATE
+  const sectionTags = document.querySelectorAll("section");
+
+  sectionTags.forEach(section => {
+    if (section.id === "lei-tv-home") {
+      // CREATE BACKGROUD VIDEO ELEMENT
+      const videoBkg = document.createElement("video");
+      videoBkg.classList.add("lei-tv-video-bkg");
+      videoBkg.autoplay = true;
+      videoBkg.loop = true;
+      videoBkg.setAttribute("playsinline", "");
+      videoBkg.muted = true;
+      const vidSource = document.createElement("source");
+      videoBkg.src =
+        "http://staging.leiculture.com/wp-content/uploads/2019/08/Flowers-7924-copy.mp4";
+      // videoBkg.appendChild(vidSource);
+      section.appendChild(videoBkg);
+
+      const tvColumns = document.querySelectorAll(
+        ".tv-bottom-row .tv-hero-column"
+      );
+
+      tvColumns.forEach((column, index) => {
+        column.addEventListener("mouseover", () => {
+          if (index === 0) {
+            // CHANGE FOR FIRST VID
+            videoBkg.style.opacity = "0";
+            videoBkg.classList.remove("fadeIn");
+            videoBkg.src =
+              "http://staging.leiculture.com/wp-content/uploads/2019/08/Flowers-7924-copy.mp4";
+            videoBkg.classList.add("fadeIn");
+            console.log(videoBkg.classList);
+          } else if (index === 1) {
+            // CHANGE FOR SECOND VID
+            videoBkg.style.opacity = "0";
+            videoBkg.classList.remove("fadeIn");
+            videoBkg.src =
+              "http://staging.leiculture.com/wp-content/uploads/2019/08/River-14205.mp4";
+            videoBkg.classList.add("fadeIn");
+            console.log(videoBkg.classList);
+          } else if (index === 2) {
+            // CHANGE FOR THIRD VID
+            videoBkg.style.opacity = "0";
+            videoBkg.classList.remove("fadeIn");
+            videoBkg.src =
+              "http://staging.leiculture.com/wp-content/uploads/2019/08/River-6815.mp4";
+            videoBkg.classList.add("fadeIn");
+            console.log(videoBkg.classList);
+          }
+        });
+      });
+    }
+  });
 });
