@@ -107,13 +107,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const videoBkg = document.createElement("video");
       videoBkg.classList.add("lei-tv-video-bkg");
       videoBkg.autoplay = true;
+      videoBkg.setAttribute("muted", "");
+      videoBkg.muted = true;
+      videoBkg.playsinline = true;
+      videoBkg.controls = false;
       videoBkg.loop = true;
       videoBkg.setAttribute("playsinline", "");
-      videoBkg.muted = true;
-      const vidSource = document.createElement("source");
       videoBkg.src =
         "http://staging.leiculture.com/wp-content/uploads/2019/08/Flowers-7924-copy.mp4";
-      // videoBkg.appendChild(vidSource);
       section.appendChild(videoBkg);
 
       const tvColumns = document.querySelectorAll(
@@ -121,31 +122,45 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
       tvColumns.forEach((column, index) => {
-        column.addEventListener("mouseover", () => {
+        function revealVideo(item, link) {
+          item.classList.remove("fadeOut");
+          item.style.opacity = "0";
+          item.src = link;
+          item.classList.add("fadeIn");
+          console.log(item.classList);
+
+          setTimeout(() => {
+            item.classList.remove("fadeIn");
+            item.style.opacity = "1";
+          }, 1700);
+
+          console.log(item.classList);
+        }
+
+        column.addEventListener("mouseleave", () => {
+          videoBkg.classList.add("fadeOut");
+        });
+
+        column.addEventListener("mouseenter", () => {
           if (index === 0) {
             // CHANGE FOR FIRST VID
-            videoBkg.style.opacity = "0";
-            videoBkg.classList.remove("fadeIn");
-            videoBkg.src =
-              "http://staging.leiculture.com/wp-content/uploads/2019/08/Flowers-7924-copy.mp4";
-            videoBkg.classList.add("fadeIn");
-            console.log(videoBkg.classList);
+            revealVideo(
+              videoBkg,
+              "http://staging.leiculture.com/wp-content/uploads/2019/08/Flowers-7924-copy.mp4"
+            );
           } else if (index === 1) {
             // CHANGE FOR SECOND VID
-            videoBkg.style.opacity = "0";
-            videoBkg.classList.remove("fadeIn");
-            videoBkg.src =
-              "http://staging.leiculture.com/wp-content/uploads/2019/08/River-14205.mp4";
-            videoBkg.classList.add("fadeIn");
-            console.log(videoBkg.classList);
+            revealVideo(
+              videoBkg,
+              "http://staging.leiculture.com/wp-content/uploads/2019/08/River-14205.mp4"
+            );
           } else if (index === 2) {
             // CHANGE FOR THIRD VID
-            videoBkg.style.opacity = "0";
-            videoBkg.classList.remove("fadeIn");
-            videoBkg.src =
-              "http://staging.leiculture.com/wp-content/uploads/2019/08/River-6815.mp4";
-            videoBkg.classList.add("fadeIn");
-            console.log(videoBkg.classList);
+
+            revealVideo(
+              videoBkg,
+              "http://staging.leiculture.com/wp-content/uploads/2019/08/River-6815.mp4"
+            );
           }
         });
       });

@@ -540,18 +540,32 @@ ul.primary-menu li:first-child {
   0% {
     opacity: 0;
   }
-  80% {
-    opacity: 0;
-  }
   100% {
     opacity: 1;
   }
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .lei-tv-video-bkg.fadeIn {
-  animation: fadeIn 2s forwards;
-  animation-delay: 0.5s;
-  animation-timing-function: ease-in;
+  animation: fadeIn 1.5s forwards;
+  animation-timing-function: ease-out;
+}
+
+video::-webkit-media-controls {
+  display: none;
+}
+
+.lei-tv-video-bkg.fadeOut {
+  animation: fadeOut 0.5s forwards;
+  animation-timing-function: ease;
 }
 
 .main-container.tv-top-row,
