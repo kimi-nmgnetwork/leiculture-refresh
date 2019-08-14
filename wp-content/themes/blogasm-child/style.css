@@ -52,8 +52,14 @@
 }
 
 .main-container {
-  width: 90% !important;
+  width: 95% !important;
   margin: 0 auto !important;
+}
+
+@media (min-width: 768px) {
+  .main-container {
+    width: 90% !important;
+  }
 }
 /* STYLING TOGGLE BUTTON AND MENU TOGGLE EVENT */
 
@@ -554,6 +560,11 @@ ul.primary-menu li:first-child {
   }
 }
 
+#lei-tv-home {
+  height: 100vh;
+  width: 100%;
+}
+
 .lei-tv-video-bkg.fadeIn {
   animation: fadeIn 1.5s forwards;
   animation-timing-function: ease-out;
@@ -583,7 +594,13 @@ video::-webkit-media-controls {
 }
 
 .tv-hero-column {
-  padding: 0 5% !important;
+  padding: 5% 25% 0 25% !important;
+}
+
+@media (min-width: 768px) {
+  .tv-hero-column {
+    padding: 0 5% !important;
+  }
 }
 
 .tv-hero-column .elementor-widget-text-editor {
@@ -613,7 +630,6 @@ video::-webkit-media-controls {
   font-size: 13px !important;
   font-weight: 300 !important;
   border-radius: 0 !important;
-  display: none;
   width: 40%;
 }
 
@@ -636,25 +652,71 @@ video::-webkit-media-controls {
   font-size: 16px;
 }
 
+@media (max-width: 1024px) {
+  .tv-bottom-row .elementor-row {
+    flex-wrap: nowrap;
+    -webkit-flex-wrap: nowrap;
+    overflow-x: scroll;
+  }
+}
+
+/* LEI TV CATEGORIES */
+
+/* #tv-categories{
+
+} */
+
+.tv-category-container {
+  position: relative;
+  height: 70vh;
+}
+
+.tv-category-container img {
+  height: 70vh !important;
+  width: 100%;
+  object-fit: cover;
+}
+
+.lei-category {
+  position: absolute !important;
+  writing-mode: vertical-lr;
+  font-size: 2rem;
+  bottom: 5%;
+  left: -5%;
+}
+
+.lei-category:before {
+  position: absolute;
+  content: "LEI";
+  writing-mode: horizontal-tb;
+  font-size: 1rem;
+  top: -25%;
+  left: 3rem;
+}
+
+@media (min-width: 768px) {
+  .lei-category {
+    font-size: 4rem;
+    bottom: 0;
+    left: -13%;
+  }
+
+  .lei-category:before {
+    font-size: 2rem;
+    top: -25%;
+    left: 6rem;
+  }
+}
+
+.lei-category.medium:before {
+  top: -15%;
+}
+
+.lei-category.large:before {
+  top: -11%;
+}
+
 /* HOVER STATE FOR TV */
-.tv-hero-column:hover .tv-column-title,
-.tv-hero-column:hover .tv-column-body,
-.tv-hero-column:hover .tv-column-ep {
-  transition: all 0.3s ease-out;
-}
-
-.tv-hero-column:hover .tv-column-title {
-  font-size: 20px;
-}
-
-.tv-hero-column:hover .tv-column-body {
-  font-size: 30px;
-}
-
-.tv-hero-column:hover .tv-play-btn a {
-  display: block;
-}
-
 .lei-tv-video-bkg {
   position: absolute;
   height: 100vh;
@@ -671,6 +733,30 @@ video::-webkit-media-controls {
   }
 
   .hide-on-mobile {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .tv-play-btn a {
+    display: none;
+  }
+
+  .tv-hero-column:hover .tv-column-title,
+  .tv-hero-column:hover .tv-column-body,
+  .tv-hero-column:hover .tv-column-ep {
+    transition: all 0.3s ease-out;
+  }
+
+  .tv-hero-column:hover .tv-column-title {
+    font-size: 20px;
+  }
+
+  .tv-hero-column:hover .tv-column-body {
+    font-size: 30px;
+  }
+
+  .tv-hero-column:hover .tv-play-btn a {
     display: block;
   }
 }

@@ -127,20 +127,24 @@ document.addEventListener("DOMContentLoaded", () => {
           item.style.opacity = "0";
           item.src = link;
           item.classList.add("fadeIn");
-          console.log(item.classList);
 
           setTimeout(() => {
             item.classList.remove("fadeIn");
             item.style.opacity = "1";
           }, 1700);
-
-          console.log(item.classList);
         }
 
         column.addEventListener("mouseleave", () => {
           videoBkg.classList.add("fadeOut");
         });
 
+        // CHANGE ON SCROLL MOBILE
+
+        column.addEventListener("scroll", event => {
+          console.log(event.currentTarget.scrollLeft);
+        });
+
+        // CHANGE ON HOVER
         column.addEventListener("mouseenter", () => {
           if (index === 0) {
             // CHANGE FOR FIRST VID
