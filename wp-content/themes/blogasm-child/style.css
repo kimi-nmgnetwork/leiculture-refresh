@@ -10,6 +10,15 @@
  Text Domain:  blogasmchild
 */
 
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap");
+
+*,
+*::before,
+*::after,
+body {
+  font-family: "Montserrat", sans-serif !important;
+}
+
 .elementor-widget-text-editor {
   color: #333 !important;
 }
@@ -668,11 +677,11 @@ video::-webkit-media-controls {
 
 .tv-category-container {
   position: relative;
-  height: 70vh;
+  height: 80vh;
 }
 
 .tv-category-container img {
-  height: 70vh !important;
+  height: 80vh !important;
   width: 100%;
   object-fit: cover;
 }
@@ -681,6 +690,7 @@ video::-webkit-media-controls {
   position: absolute !important;
   writing-mode: vertical-lr;
   font-size: 2rem;
+  color: white !important;
   bottom: 5%;
   left: -5%;
 }
@@ -694,6 +704,14 @@ video::-webkit-media-controls {
   left: 3rem;
 }
 
+.lei-category-description {
+  position: absolute !important;
+  bottom: 7% !important;
+  width: 50% !important;
+  left: 5rem;
+  color: white !important;
+}
+
 @media (min-width: 768px) {
   .lei-category {
     font-size: 4rem;
@@ -705,6 +723,20 @@ video::-webkit-media-controls {
     font-size: 2rem;
     top: -25%;
     left: 6rem;
+  }
+
+  .lei-category-description {
+    bottom: 3% !important;
+    left: 8rem;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.3s ease-in;
+  }
+
+  .tv-category-container:hover .lei-category-description {
+    opacity: 1;
+    transform: translateX(0px);
+    transition: all 0.3s ease-out;
   }
 }
 
