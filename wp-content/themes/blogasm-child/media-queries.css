@@ -1,0 +1,189 @@
+/* MEDIA QUERIES */
+
+@media (min-width: 768px) {
+  /* GLOBAL STYLES */
+  .main-container {
+    width: 90% !important;
+  }
+  /* STYLING MAIN TOGGLE MENU */
+  .site-branding .custom-logo {
+    height: 60px;
+  }
+
+  #primary-menu {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+  }
+
+  /* CATEGORY PAGE STYLES */
+  #sub-hero {
+    height: 100vh;
+  }
+
+  .scroll-cta {
+    display: block;
+    position: absolute !important;
+    left: -15%;
+    bottom: 0;
+    writing-mode: vertical-lr;
+  }
+
+  /* POST STYLES */
+  .post-hero-img {
+    height: auto !important;
+    width: 70% !important;
+  }
+
+  .post-author,
+  .post-description {
+    width: 90% !important;
+    margin: 0 auto !important;
+  }
+
+  .post-description p {
+    font-size: 2.6rem;
+    line-height: 1.4 !important;
+  }
+
+  .post-text-centered-container {
+    width: 40% !important;
+  }
+
+  /* LEI TV */
+  .tv-hero-column {
+    padding: 0 5% !important;
+  }
+
+  .tv-column-section-title {
+    font-size: 66px;
+  }
+
+  .lei-category {
+    font-size: 4rem;
+    bottom: 0;
+    left: -13%;
+  }
+
+  .lei-category:before {
+    font-size: 2rem;
+    top: -25%;
+    left: 6rem;
+  }
+
+  .lei-category-description {
+    bottom: 3% !important;
+    left: 8rem;
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.3s ease-in;
+  }
+
+  .tv-category-container:hover .lei-category-description {
+    opacity: 1;
+    transform: translateX(0px);
+    transition: all 0.3s ease-out;
+  }
+
+  .hide-on-desktop {
+    display: none;
+  }
+
+  .hide-on-mobile {
+    display: block;
+  }
+
+  .tv-category-container:first-of-type {
+    padding: 0 10px 0 0 !important;
+  }
+
+  .tv-category-container:last-of-type {
+    padding: 0 0 0 10px !important;
+  }
+
+  .tv-category-container {
+    position: relative;
+    height: 100vh;
+    padding: 0 10px;
+  }
+}
+
+@media (min-width: 992px) {
+  /* BURGER MENU */
+  .hamburger-menu.d-lg-none {
+    display: block !important;
+  }
+
+  .d-lg-block {
+    display: none !important;
+  }
+
+  .main-navigation {
+    flex-direction: row-reverse;
+  }
+
+  #primary-menu {
+    display: block !important;
+  }
+
+  .nav-hover-img-container {
+    width: 40%;
+  }
+
+  .main-navigation ul {
+    display: flex;
+    list-style: none;
+    flex-direction: column !important;
+    width: fit-content;
+    margin-left: 8rem !important;
+  }
+
+  .content-container {
+    width: 80% !important;
+    margin: 0 auto;
+  }
+
+  /* CATEGORY PAGE STYLES */
+  .hero-container {
+    height: 75vh !important;
+    width: 60vw !important;
+    margin: 0 !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  /* LEI TV */
+  .tv-bottom-row .elementor-row {
+    flex-wrap: nowrap;
+    -webkit-flex-wrap: nowrap;
+    overflow-x: scroll;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* LEI TV */
+  .tv-play-btn a {
+    display: none;
+  }
+
+  .tv-hero-column:hover .tv-column-title,
+  .tv-hero-column:hover .tv-column-body,
+  .tv-hero-column:hover .tv-column-ep,
+  .tv-hero-column .tv-column-title,
+  .tv-hero-column .tv-column-body,
+  .tv-hero-column .tv-column-ep {
+    transition: all 0.3s ease-out;
+  }
+
+  .tv-hero-column:hover .tv-column-title {
+    font-size: 18px;
+  }
+
+  .tv-hero-column:hover .tv-column-body {
+    font-size: 25px;
+  }
+
+  .tv-hero-column:hover .tv-play-btn a {
+    display: block;
+  }
+}
