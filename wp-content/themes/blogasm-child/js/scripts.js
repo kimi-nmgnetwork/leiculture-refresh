@@ -171,3 +171,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+window.addEventListener("scroll", () => {
+  // Change Menu To Dark Mode
+  const sectionOrFooter = document.querySelectorAll("section, footer");
+
+  sectionOrFooter.forEach(event => {
+    if (event.classList.contains("is-dark")) {
+      console.log(event.scrollTop);
+    }
+  });
+});

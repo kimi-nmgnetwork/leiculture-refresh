@@ -787,6 +787,12 @@ video::-webkit-media-controls {
 
 @media (min-width: 1024px) {
   /* LEI TV */
+
+  /* find the second one */
+  .tv-hero-column {
+    min-height: 700px;
+  }
+
   .tv-play-btn a {
     display: none;
   }
@@ -796,19 +802,39 @@ video::-webkit-media-controls {
   .tv-hero-column:hover .tv-column-ep,
   .tv-hero-column .tv-column-title,
   .tv-hero-column .tv-column-body,
-  .tv-hero-column .tv-column-ep {
+  .tv-hero-column .tv-column-ep,
+  .tv-play-btn a,
+  .tv-play-btn a:hover {
     transition: all 0.3s ease-out;
   }
 
+  .tv-column-title {
+    transform-origin: bottom left;
+  }
+
+  .tv-column-body {
+    transform-origin: top left;
+  }
+
   .tv-hero-column:hover .tv-column-title {
-    font-size: 18px;
+    transform: scale(0.8);
   }
 
   .tv-hero-column:hover .tv-column-body {
-    font-size: 25px;
+    transform: scale(1.3);
+  }
+
+  .tv-hero-column:hover .tv-column-ep {
+    transform: translateY(2em);
   }
 
   .tv-hero-column:hover .tv-play-btn a {
     display: block;
+    transform: translateY(4em);
+  }
+
+  .tv-play-btn a:hover {
+    background: white;
+    color: white;
   }
 }
