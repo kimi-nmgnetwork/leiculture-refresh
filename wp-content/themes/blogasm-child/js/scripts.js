@@ -50,7 +50,12 @@ const createNav = () => {
   const selectedImg = document.querySelector(".hover-img");
   const pageItems = document.querySelectorAll(".page_item");
 
-  //todo CHANGE THIS TO IMAGE LINKS LATER
+  // ------------------------------------------------------------------------------
+  // CHANGE THE IMAGES FOR THE NAVIGATION HERE
+  // - the order of the links matter as the match up with the index in the nav
+  // - the first link will be the first img when you hover over arts and design
+  // - remember to also change the default image below
+  // ------------------------------------------------------------------------------
   const imgArr = [
     // MAKE SURE THE YOU FIX THE PATH FROM STAGING
     "http://staging.leiculture.com/wp-content/uploads/2019/08/arts_design.jpg",
@@ -62,11 +67,12 @@ const createNav = () => {
     "http://staging.leiculture.com/wp-content/uploads/2019/08/guides.jpg",
     "http://staging.leiculture.com/wp-content/uploads/2019/08/subscribe.jpg"
   ];
-  let current;
 
   // SET DEFAULT HOVER IMG
   selectedImg.src =
     "http://staging.leiculture.com/wp-content/uploads/2019/08/arts_design.jpg";
+
+  let current;
 
   pageItems.forEach((item, key) => {
     let currentLink;
@@ -109,6 +115,13 @@ const opAnim = () => {
 const leiHover = () => {
   const sectionTags = document.querySelectorAll("section");
 
+  // ------------------------------------------------------------------------------
+  // CHANGE THE VIDEO FOR LEI TV HERE
+  // - each video has comment left what index of video it is
+  // - replace the link only to change the video
+  // - remember to also change the default video below
+  // ------------------------------------------------------------------------------
+
   sectionTags.forEach(section => {
     if (section.id === "lei-tv-home") {
       // CREATE BACKGROUD VIDEO ELEMENT
@@ -121,6 +134,7 @@ const leiHover = () => {
       videoBkg.controls = false;
       videoBkg.loop = true;
       videoBkg.setAttribute("playsinline", "");
+      // THIS IS THE DEFAULT BACKGROUND VIDEO FOR LEI TV
       videoBkg.src =
         "http://staging.leiculture.com/wp-content/uploads/2019/08/Flowers-7924-copy.mp4";
       section.appendChild(videoBkg);
@@ -146,13 +160,6 @@ const leiHover = () => {
           videoBkg.classList.add("fadeOut");
         });
 
-        // CHANGE ON SCROLL MOBILE
-
-        column.addEventListener("scroll", event => {
-          console.log(event.currentTarget.scrollLeft);
-        });
-
-        // CHANGE ON HOVER
         column.addEventListener("mouseenter", () => {
           if (index === 0) {
             // CHANGE FOR FIRST VID
