@@ -1,5 +1,5 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // GET RID OF ALL WIDOWS
+// GET RID OF ALL WIDOWS
+const widowSlayer = () => {
   const pTag = document.querySelectorAll("p");
 
   pTag.forEach(tag => {
@@ -10,7 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // 3. Join the last two togehter with a &nbsp;
     tag.innerHTML = words.join(" ") + " " + lastWordsList.join("&nbsp;");
   });
+};
 
+// CREATE NAVIGATION
+const createNav = () => {
   // Remove overlay if burger x is clicked
   const burgerMenu = document.querySelector(".hamburger-menu");
   const overlay = document.querySelector(".body-overlay");
@@ -21,10 +24,15 @@ document.addEventListener("DOMContentLoaded", () => {
   burgerMenu.addEventListener("click", () => {
     if (burgerMenu.classList.contains("cross")) {
       overlay.classList.add("is-active");
-      overflowHeroImg.style.display = "none";
+
+      if (overflowHeroImg) {
+        overflowHeroImg.style.display = "none";
+      }
     } else {
       overlay.classList.remove("is-active");
-      overflowHeroImg.style.display = "block";
+      if (overflowHeroImg) {
+        overflowHeroImg.style.display = "block";
+      }
     }
   });
 
@@ -74,13 +82,14 @@ document.addEventListener("DOMContentLoaded", () => {
         if (current == key) {
           selectedImg.src = img;
           hoverImgLink.href = currentLink;
-          console.log(hoverImgLink);
         }
       });
     });
   });
+};
 
-  // USE THE OPENING ANIMATIONS
+// USE THE OPENING ANIMATIONS
+const opAnim = () => {
   const imgTags = document.querySelectorAll("div");
 
   const heroImg = document.querySelector(".hero-img");
@@ -97,8 +106,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
+};
 
-  // LEI TV HOVER STATE
+// LEI TV HOVER STATE
+const leiHover = () => {
   const sectionTags = document.querySelectorAll("section");
 
   sectionTags.forEach(section => {
@@ -170,15 +181,66 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   });
-});
+};
 
-window.addEventListener("scroll", () => {
+// CREATE DARK MODE
+const darkMode = () => {
   // Change Menu To Dark Mode
-  const sectionOrFooter = document.querySelectorAll("section, footer");
+  const isDark = document.querySelectorAll(".is-dark");
+  const footerTag = document.querySelectorAll("footer");
+  const headerTag = document.querySelector("header");
+  const customLogoLink = document.querySelector(".custom-logo-link img");
+  let revealPoint = 150;
 
-  sectionOrFooter.forEach(event => {
-    if (event.classList.contains("is-dark")) {
-      console.log(event.scrollTop);
+  function changeNavColor(operation, headerClass, logoSrc) {
+    if (operation === "add") {
+      headerTag.classList.add(headerClass);
+    } else if (operation === "remove") {
+      headerTag.classList.remove(headerClass);
     }
+
+    customLogoLink.src = logoSrc;
+    customLogoLink.srcset = logoSrc;
+  }
+
+  isDark.forEach(event => {
+    if (event.classList.contains("is-dark")) {
+      changeNavColor(
+        "add",
+        "transparent",
+        "http://staging.leiculture.com/wp-content/uploads/2019/08/lei-white-logo.png"
+      );
+    }
+
+    window.addEventListener("scroll", () => {
+      let windowHeight = window.innerHeight;
+      let revealTop = footerTag.getClientBoundingRect().top;
+      let revealBottom = footerTag.getClientBoundingRect().bottom;
+
+      if (revealTop < windowHeight - revealPoint) {
+        changeNavColor(
+          "add",
+          "dark-mode",
+          "http://staging.leiculture.com/wp-content/uploads/2019/08/lei-white-logo.png"
+        );
+        console.log("revealed");
+      } else {
+        changeNavColor(
+          "remove",
+          "dark-mode",
+          "http://staging.leiculture.com/wp-content/uploads/2019/08/cropped-lei-01-1.png"
+        );
+        console.log("not revealed");
+      }
+    });
   });
+};
+
+// RENDER THEM WHEN THE DOM IS READY
+document.addEventListener("DOMContentLoaded", () => {
+  widowSlayer();
+  createNav();
+  opAnim();
+  leiHover();
+  darkMode();
 });

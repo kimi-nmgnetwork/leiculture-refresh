@@ -27,6 +27,24 @@ body {
   display: none;
 }
 
+/* HEADER MODES */
+header.transparent .nav-bar {
+  background: transparent !important;
+}
+
+header.transparent .hamburger-menu span {
+  background: white !important;
+}
+
+header.transparent .hamburger-menu.cross span,
+header.dark-mode .hamburger-menu.cross span {
+  background: black !important;
+}
+
+header.dark-mode {
+  background: black !important;
+}
+
 /* ACCENTS */
 
 .brown-accent,
@@ -184,6 +202,16 @@ ul.primary-menu li:first-child {
 
 .hero-img {
   opacity: 0;
+}
+
+.hero-img.lei-category {
+  position: relative !important;
+  left: 0 !important;
+}
+
+.hero-img .elementor-image img {
+  height: 100%;
+  width: auto !important;
 }
 
 .hero-img.loaded {
