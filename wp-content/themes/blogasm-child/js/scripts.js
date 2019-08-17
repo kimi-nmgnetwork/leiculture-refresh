@@ -3,22 +3,19 @@ const widowSlayer = () => {
   const pTag = document.querySelectorAll("p");
 
   pTag.forEach(tag => {
-    // 1. Split all the words from the p tag from anytime there's a space
     const words = tag.innerHTML.split(" ");
-    // 2. Find the last space and insert a &nbsp; in it's place
     const lastWordsList = words.slice(-1) && words.splice(-2);
-    // 3. Join the last two togehter with a &nbsp;
     tag.innerHTML = words.join(" ") + " " + lastWordsList.join("&nbsp;");
   });
 };
 
 // CREATE NAVIGATION
 const createNav = () => {
-  // Remove overlay if burger x is clicked
+  // REMOVE OVERLAY IF BURGER X IS CLICKED
   const burgerMenu = document.querySelector(".hamburger-menu");
   const overlay = document.querySelector(".body-overlay");
 
-  // Disable overflow hero img when nav is toggled
+  // DISABLE OVERFLOW HERO IMG WHEN NAV IS TOGGLED
   const overflowHeroImg = document.querySelector(".hero-img");
 
   burgerMenu.addEventListener("click", () => {
@@ -36,7 +33,7 @@ const createNav = () => {
     }
   });
 
-  // Create the img element for the nav link hover
+  // CREATE THE IMG ELEMENT FOR THE NAV LINK HOVER
   const nav = document.querySelector("nav");
   const hoverImgContainer = document.createElement("div");
   hoverImgContainer.classList.add("nav-hover-img-container");
@@ -53,7 +50,7 @@ const createNav = () => {
   const selectedImg = document.querySelector(".hover-img");
   const pageItems = document.querySelectorAll(".page_item");
 
-  // Change this to img links later
+  //todo CHANGE THIS TO IMAGE LINKS LATER
   const imgArr = [
     // MAKE SURE THE YOU FIX THE PATH FROM STAGING
     "http://staging.leiculture.com/wp-content/uploads/2019/08/arts_design.jpg",
@@ -185,7 +182,7 @@ const leiHover = () => {
 
 // CREATE DARK MODE
 const darkMode = () => {
-  // Change Menu To Dark Mode
+  // CHANGE MENU TO DARK MODE
   const isDark = document.querySelectorAll(".is-dark");
   const footerTag = document.querySelectorAll("footer");
   const headerTag = document.querySelector("header");
@@ -203,6 +200,7 @@ const darkMode = () => {
     customLogoLink.srcset = logoSrc;
   }
 
+  // HANDLE PAGES THAT HAVE is-dark CLASS
   isDark.forEach(event => {
     if (event.classList.contains("is-dark")) {
       changeNavColor(
@@ -211,28 +209,29 @@ const darkMode = () => {
         "http://staging.leiculture.com/wp-content/uploads/2019/08/lei-white-logo.png"
       );
     }
+  });
 
-    window.addEventListener("scroll", () => {
-      let windowHeight = window.innerHeight;
-      let revealTop = footerTag.getClientBoundingRect().top;
-      let revealBottom = footerTag.getClientBoundingRect().bottom;
+  // HANDLE NAV CHANGE IF FOOTER IS SCROLL OVER
+  window.addEventListener("scroll", () => {
+    let windowHeight = window.innerHeight;
+    let revealTop = footerTag.getClientBoundingRect().top;
+    let revealBottom = footerTag.getClientBoundingRect().bottom;
 
-      if (revealTop < windowHeight - revealPoint) {
-        changeNavColor(
-          "add",
-          "dark-mode",
-          "http://staging.leiculture.com/wp-content/uploads/2019/08/lei-white-logo.png"
-        );
-        console.log("revealed");
-      } else {
-        changeNavColor(
-          "remove",
-          "dark-mode",
-          "http://staging.leiculture.com/wp-content/uploads/2019/08/cropped-lei-01-1.png"
-        );
-        console.log("not revealed");
-      }
-    });
+    if (revealTop < windowHeight - revealPoint) {
+      changeNavColor(
+        "add",
+        "dark-mode",
+        "http://staging.leiculture.com/wp-content/uploads/2019/08/lei-white-logo.png"
+      );
+      console.log("revealed");
+    } else {
+      changeNavColor(
+        "remove",
+        "dark-mode",
+        "http://staging.leiculture.com/wp-content/uploads/2019/08/cropped-lei-01-1.png"
+      );
+      console.log("not revealed");
+    }
   });
 };
 
