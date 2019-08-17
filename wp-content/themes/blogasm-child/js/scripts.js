@@ -33,6 +33,16 @@ const createNav = () => {
     }
   });
 
+  // CREATE INITAL NAV FOR HOME PAGE
+  // todo GET STYLES AND EVERYTHING WORKING
+  const bodyTag = document.querySelector("body");
+  if (bodyTag.classList.contains("home")) {
+    burgerMenu.classList.add("cross");
+    overlay.classList.add("is-active");
+
+    return;
+  }
+
   // CREATE THE IMG ELEMENT FOR THE NAV LINK HOVER
   const nav = document.querySelector("nav");
   const hoverImgContainer = document.createElement("div");
